@@ -1,14 +1,14 @@
 
 import UIKit
 
-protocol EditTaskDelegate: AnyObject {
+protocol DetailedTaskDelegate: AnyObject {
     func didEditTask(_ task: TaskModel)
 }
 
-final class EditTaskConfigurator {
-    func configure(task: TaskModel, delegate: EditTaskDelegate) -> UIViewController {
-        let view = EditTaskViewController()
-        let presenter = EditTaskPresenter(task: task)
+final class DetailedTaskConfigurator {
+    func configure(task: TaskModel, delegate: DetailedTaskDelegate) -> UIViewController {
+        let view = DetailedTaskViewController()
+        let presenter = DetailedTaskPresenter(task: task)
         
         view.output = presenter
         presenter.view = view

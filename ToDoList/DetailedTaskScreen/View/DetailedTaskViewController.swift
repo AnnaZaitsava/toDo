@@ -1,12 +1,12 @@
 import UIKit
 import SnapKit
 
-protocol EditTaskViewInputProtocol: AnyObject {
+protocol DetailedTaskViewInputProtocol: AnyObject {
     func setupWithTaskData(_ task: TaskModel)
 }
 
-final class EditTaskViewController: UIViewController, EditTaskViewInputProtocol {
-    var output: EditTaskOutputProtocol?
+final class DetailedTaskViewController: UIViewController, DetailedTaskViewInputProtocol {
+    var output: DetailedTaskOutputProtocol?
     
     private let titleTextView: UITextView = {
         let textView = UITextView()
@@ -16,6 +16,7 @@ final class EditTaskViewController: UIViewController, EditTaskViewInputProtocol 
         textView.isScrollEnabled = false
         textView.textContainer.lineBreakMode = .byTruncatingTail
         textView.textContainer.maximumNumberOfLines = 3
+        textView.keyboardAppearance = .dark
         return textView
     }()
     
@@ -27,6 +28,7 @@ final class EditTaskViewController: UIViewController, EditTaskViewInputProtocol 
         textView.backgroundColor = .black
         textView.textColor = .white
         textView.autocorrectionType = .yes
+        textView.keyboardAppearance = .dark
         return textView
     }()
     
@@ -79,7 +81,7 @@ final class EditTaskViewController: UIViewController, EditTaskViewInputProtocol 
 
 //MARK: - UI
 
-private extension EditTaskViewController {
+private extension DetailedTaskViewController {
     
     func addSubviews() {
         

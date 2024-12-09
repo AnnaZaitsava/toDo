@@ -12,7 +12,7 @@ protocol ToDoListOutputProtocol: AnyObject {
     func navigateToShareSheet(_ task: TaskModel)
 }
 
-final class ToDoListPresenter: ToDoListOutputProtocol, EditTaskDelegate {
+final class ToDoListPresenter: ToDoListOutputProtocol, DetailedTaskDelegate {
     weak var view: ToDoListViewInputProtocol?
     var interactor: ToDoListInteractorInputProtocol?
     var router: ToDoListRouterInputProtocol?

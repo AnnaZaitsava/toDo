@@ -1,5 +1,5 @@
 protocol ToDoListRouterInputProtocol {
-    func presentTaskDetail(_ task: TaskModel, _ delegate: EditTaskDelegate)
+    func presentTaskDetail(_ task: TaskModel, _ delegate: DetailedTaskDelegate)
     func presentShareSheet(items: [String])
 }
 
@@ -8,8 +8,8 @@ import UIKit
 final class ToDoListRouter: ToDoListRouterInputProtocol {
     weak var entry: UIViewController?
     
-    func presentTaskDetail(_ task: TaskModel, _ delegate: EditTaskDelegate) {
-        let editVC = EditTaskConfigurator().configure(task: task, delegate: delegate)
+    func presentTaskDetail(_ task: TaskModel, _ delegate: DetailedTaskDelegate) {
+        let editVC = DetailedTaskConfigurator().configure(task: task, delegate: delegate)
         entry?.navigationItem.backButtonTitle = LocalizedData.back
         entry?.navigationController?.pushViewController(editVC, animated: true)
     }

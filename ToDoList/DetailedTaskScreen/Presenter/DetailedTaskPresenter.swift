@@ -1,13 +1,13 @@
 import UIKit
 
-protocol EditTaskOutputProtocol {
+protocol DetailedTaskOutputProtocol {
     func viewDidLoad()
     func didFinishEditingTask(_ title: String, _ desc: String, _ dateString: String)
 }
 
-final class EditTaskPresenter: EditTaskOutputProtocol {
-    weak var view: EditTaskViewInputProtocol?
-    weak var delegate: EditTaskDelegate?
+final class DetailedTaskPresenter: DetailedTaskOutputProtocol {
+    weak var view: DetailedTaskViewInputProtocol?
+    weak var delegate: DetailedTaskDelegate?
     
     private var task: TaskModel
     
