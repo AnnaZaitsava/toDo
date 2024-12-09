@@ -2,6 +2,7 @@ import UIKit
 
 protocol DetailedTaskOutputProtocol {
     func viewDidLoad()
+    func didChooseDate(date: Date)
     func didFinishEditingTask(_ title: String, _ desc: String, _ dateString: String)
 }
 
@@ -28,5 +29,12 @@ final class DetailedTaskPresenter: DetailedTaskOutputProtocol {
         task.desc = desc
         task.date = date
         delegate?.didEditTask(task)
+    }
+    
+    func didChooseDate(date: Date) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = K.dateFormat
+        let formattedDate = dateFormatter.string(from: date)
+        view?.updateDate(date: formattedDate)
     }
 }
