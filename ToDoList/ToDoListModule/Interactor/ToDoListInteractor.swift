@@ -11,7 +11,7 @@ protocol ToDoListInteractorInputProtocol: AnyObject {
 final class ToDoListInteractor: ToDoListInteractorInputProtocol {
     weak var output: ToDoListOutputProtocol?
     private let storageManager: CoreDataManagerProtocol
-    private let backgroundQueue = DispatchQueue(label: "todolistCoredata", qos: .userInitiated)
+    private let backgroundQueue = DispatchQueue(label: "com.todo", qos: .userInitiated)
     
     init(coreDataManager: CoreDataManagerProtocol) {
         storageManager = coreDataManager
