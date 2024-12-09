@@ -2,7 +2,7 @@
 import UIKit
 
 struct TaskResponse: Decodable {
-    let tasks: [TaskModel]?
+    let todos: [TaskModel]?
     let total: Int
     let skip: Int
     let limit: Int

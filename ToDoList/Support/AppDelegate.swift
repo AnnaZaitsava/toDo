@@ -16,16 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
     }
         
-        lazy var persistentContainer: NSPersistentContainer = {
-            let container = NSPersistentContainer(name: "ToDoList")
-            container.loadPersistentStores { _, error in
-                if let error = error {
-                    fatalError("Failed to load Core Data")
-                }
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "ToDoList")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error {
+                print(error.localizedDescription)
             }
-            
-            return container
-        }()
+            else {
+                print(storeDescription.url as Any)
+            }
+        })
+        return container
+    }()
 
     func saveContext () {
         let context = persistentContainer.viewContext

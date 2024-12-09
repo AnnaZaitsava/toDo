@@ -48,7 +48,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
     
     func updateTask(_ task: TaskModel) {
         let request: NSFetchRequest<TaskEntity> = TaskEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "id == %lld", task.id)
+        request.predicate = NSPredicate(format: "id == %d", task.id)
         
         do {
             if let entity = try context.fetch(request).first {
@@ -65,7 +65,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
     
     func deleteTask(_ task: TaskModel) {
         let request: NSFetchRequest<TaskEntity> = TaskEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "id == %lld", task.id)
+        request.predicate = NSPredicate(format: "id == %d", task.id)
         do {
             let entities = try context.fetch(request)
             for entity in entities {
